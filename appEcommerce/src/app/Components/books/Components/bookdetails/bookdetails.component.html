@@ -1,0 +1,61 @@
+<div class="card mb-3" *ngIf="book else no_books">
+  <div class="row">
+    <div class="col-md-3">
+      <img src="{{book.imageUrl}}" class="img-fluid rounded-start">
+    </div>
+
+    <div class="col-md-9  d-flex flex-column text-left ng-star-inserted">
+      <div class="card-body d-flex flex-column">
+        <h2 class="card-title">
+          {{book.title}}
+        </h2>
+        <p class="card-text">
+          {{book.description}}
+        </p>
+
+        <img style="width: 150px" src="{{book.subimageUrl}}" alt="images">
+
+        <br>
+        <br>
+        <br>
+
+
+        <form [formGroup]="commentform" (ngSubmit)="postComment()">
+
+          <br>
+          <br>
+
+          <input type="text" id="commnettext" formControlName="commnettext">
+
+          <button  type="submit" class="btn btn-success">
+
+            Create comment
+
+         </button>
+
+        </form>
+
+        <br>
+        <br>
+        <br>
+         <br>
+        <br>
+
+        <div *ngFor="let itemcomment of comments">
+          <p *ngIf="itemcomment.userId==userId">
+            {{itemcomment.useremail}}: {{itemcomment.commnettext}}
+          </p>
+        </div>
+
+        <br>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #no_books>
+  <div class="alert alert-warning">
+      No found.
+  </div>
+</ng-template>

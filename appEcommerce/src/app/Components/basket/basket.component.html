@@ -1,0 +1,93 @@
+<table class="table" >
+  <thead>
+    <tr>
+      <th scope="col">N</th>
+      <th scope="col">Image</th>
+      <th scope="col">Title</th>
+      <th scope="col">Genre</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of baskets" >
+    <tr  >
+      <th scope="row" *ngIf="item.userId==userId" >
+
+        <div *ngFor="let item2 of books">
+
+          <div *ngIf="item2.id==item.bookId">
+            <p>
+              {{item2.productcode}}
+            </p>
+          </div>
+
+        </div>
+
+
+
+      </th>
+      <td *ngIf="item.userId==userId">
+
+        <div *ngFor="let item2 of books">
+
+          <div *ngIf="item2.id==item.bookId">
+
+            <img style="width: 50px" src="{{item2.imageUrl}}" alt="">
+            <img style="width: 50px" src="{{item2.subimageUrl}}" alt="">
+
+          </div>
+
+        </div>
+
+
+
+      </td>
+
+      <td *ngIf="item.userId==userId">
+
+        <div *ngFor="let item2 of books">
+
+          <div *ngIf="item2.id==item.bookId">
+
+            <p>
+              {{item2.title}}
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+      </td>
+
+      <td *ngIf="item.userId==userId">
+
+
+        <div *ngFor="let item2 of books">
+
+
+          <div *ngFor="let item3 of genres">
+
+
+            <div *ngIf="item2.id==item.bookId && item.bookId==item2.id && item3.id==item2.genreId">
+
+
+              <p>
+                {{item3.genrename}}
+              </p>
+
+            </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>

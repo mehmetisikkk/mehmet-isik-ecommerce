@@ -1,0 +1,218 @@
+
+<div *ngFor="let item of (wishLists  | keyvalue)">
+
+
+
+
+  <div *ngFor="let item2 of (item.value  | keyvalue)">
+
+
+        <!-- <pre *ngIf="item2.value!='[object Object]'">BookId:{{item2.value}}</pre> -->
+
+
+<!--
+        <div *ngFor="let bookitem of books">
+
+          <div *ngIf="bookitem.id==item2.value">
+
+            <div>
+              {{bookitem.title}}
+            </div>
+          </div>
+
+        </div> -->
+
+
+        <div id="container" *ngFor="let bookitem of books">
+
+          <div id="card" *ngIf="bookitem.id==item2.value">
+
+
+                  <div *ngIf="wishLists.length>0; else no_wishes">
+
+
+                      <img src="{{bookitem.imageUrl}}" alt="profile" width="250px">
+                      <img src="{{bookitem.subimageUrl}}" alt="profile" width="250px">
+
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+
+                      <p >Product code: {{bookitem.productcode}}</p>
+
+                      <br>
+
+                      <p >Product title: {{bookitem.title}}</p>
+
+                      <br>
+
+                      <p >Product description: {{bookitem.description}}</p>
+
+                      <br>
+
+                      <p >Product isSoftCover: {{bookitem.isSoftCover}}</p>
+
+                      <br>
+
+                      <p >Product page: {{bookitem.page}}</p>
+
+                      <br>
+
+                      <p >Product isPopular: {{bookitem.isPopular}}</p>
+
+                      <br>
+
+                      <p >Product datePublished: {{bookitem.datePublished}}</p>
+
+                      <br>
+
+                      <div *ngFor="let genreitem of genres">
+
+                        <p *ngIf="genreitem.id==bookitem.genreId" >Product datePublished: {{genreitem.genrename}}</p>
+                      </div>
+
+
+                      <br>
+                      <br>
+
+
+                      <a target="_blank" style="cursor: pointer" (click)="Delete(bookitem)">
+
+                        <p class="design1">Delete </p>
+
+                      </a>
+
+
+                      <a target="_self" routerLink="/basket" (click)="Buy(bookitem)">
+
+                        <p class="design2">Buy </p>
+
+                      </a>
+
+                  </div>
+
+
+
+
+
+          </div>
+
+
+      </div>
+
+
+    <div *ngFor="let item3 of (item2.value  | keyvalue)">
+
+
+      <!-- <pre  *ngIf="item3.value!='0' && item3.value ==userId">UserId: {{item3.value}}</pre> -->
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+<ng-template #no_wishes>
+
+
+  <div class="alert alert-warning" *ngIf="wishLists.length==0||!loading">
+
+    No found
+
+    <div *ngIf="bookError">
+
+      {{bookError.message}}
+
+    </div>
+
+
+  </div>
+
+
+</ng-template>
+
+<div *ngIf="loading" class="text-center">
+  <div class="spinner-border text-primary" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>
+
+
+
+
+ <!-- <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">N</th>
+      <th scope="col">Image</th>
+      <th scope="col">Title</th>
+      <th scope="col">Genre</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of wishLists">
+    <tr *ngFor="let item2 of books">
+      <th scope="row">
+
+
+        <div *ngIf="item2.id==item.bookId">
+          <p>
+            {{item2.productcode}}
+          </p>
+        </div>
+
+      </th>
+      <td>
+
+        <div *ngIf="item2.id==item.bookId">
+
+          <img style="width: 50px" src="{{item2.imageUrl}}" alt="">
+          <img style="width: 50px" src="{{item2.subimageUrl}}" alt="">
+
+        </div>
+
+      </td>
+
+      <td>
+
+        <div *ngIf="item2.id==item.bookId">
+
+          <p>
+            {{item2.title}}
+          </p>
+
+        </div>
+
+      </td>
+
+      <td >
+
+        <div *ngFor="let item3 of genres">
+
+
+        <div *ngIf="item2.id==item.bookId && item.bookId==item2.id && item3.id==item2.genreId">
+
+
+          <p>
+            {{item3.genrename}}
+          </p>
+
+        </div>
+
+        </div>
+
+
+      </td>
+
+    </tr>
+
+  </tbody>
+</table> -->

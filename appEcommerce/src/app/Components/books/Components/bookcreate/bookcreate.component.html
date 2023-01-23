@@ -1,0 +1,88 @@
+
+
+
+<h1 style="color:red">Create Book</h1>
+
+<form [formGroup]="movieform" (ngSubmit)="createBook()">
+
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input id="title" name="title" type="text" class="form-control"  formControlName="title_">
+    <p>{{movieform.value.title_}}</p>
+
+    <div class="alert alert-danger" *ngIf="movieform.get('title_').invalid && movieform.get('title_').touched">
+      <p *ngIf="movieform.get('title_')?.errors?.['required']"> Required places </p>
+      <p *ngIf="movieform.get('title_')?.errors?.['minlength']"> Minimum  5 characters write </p>
+    </div>
+
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <input  id="description" name="description" type="text" class="form-control"  formControlName="description_">
+  </div>
+
+  <div class="mb-3">
+    <label for="productcode" class="form-label">Productcode</label>
+    <input  id="productcode" name="productcode" type="text" class="form-control"  formControlName="productcode_">
+  </div>
+
+  <div class="mb-3">
+    <input  id="isSoftCover" name="isSoftCover" type="checkbox" class="form-check-input"  formControlName="isSoftCover_">
+    <label for="isSoftCover" class="form-label">isSoftCover</label>
+  </div>
+
+  <div class="mb-3">
+    <label for="page" class="form-label">Page</label>
+    <input  id="page" name="page" type="number" class="form-control"  formControlName="page_">
+  </div>
+
+  <div class="mb-3">
+    <input  id="isPopular" name="isPopular" type="checkbox"  class="form-check-input"  formControlName="isPopular_">
+    <label for="isPopular" class="form-label">isPopular</label>
+  </div>
+
+  <div class="mb-3">
+    <label for="imageUrl" class="form-label">Image Url</label>
+    <input id="imageUrl" name="imageUrl" type="text" class="form-control"  formControlName="imageUrl_">
+  </div>
+
+
+
+  <div class="mb-3">
+    <label for="genreId" class="form-label">Category</label>
+    <select id="genreId" name="genreId" class="form-select"  formControlName="genreId_">
+      <option value="-1"> Select genre</option>
+      <option *ngFor="let item of genres" [value]="item.id"> {{item.genrename}}</option>
+    </select>
+  </div>
+
+  <div class="mb-3" id="file-container">
+
+    <input id="subimageUrl" name="subimageUrl" type="file" class="form-control"  formControlName="subimageUrl_"(change)="getfile($event)">
+
+  </div>
+
+  <div class="mb-3" *ngIf="file">
+
+
+
+   <button (click)="file=undefined"> clear file </button>
+
+   <br>
+
+  </div>
+
+  <button [disabled]="!isFormValid()" type="submit" class="btn btn-success">
+
+     Create Movie
+
+  </button>
+
+  <button type="submit" (click)="ClearForm()" class="btn btn-warning">
+
+    Clear
+
+ </button>
+
+</form>

@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg navbar-dark justify-content-between" style="background-color:wheat">
+
+  <div class="container-fluid">
+    <a class="navbar-brand" >
+      <img src="../../../assets/logo.png" style="width: 75px" alt="">
+    </a>
+
+    <button class="navbar-toggler btn  btn-close-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon btn  btn-danger"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul  class="navbar-nav me-auto">
+
+        <li class="nav-item">
+          <a *ngIf="isAuthenticated" routerLink="/books" id="text" class="nav-link" href="#">Books</a>
+        </li>
+
+
+
+        <li *ngIf="isAuthenticated" class="dropdown" style="margin-top: 10px;">
+
+          <a *ngIf="email=='admin@admin.com'" class="dropdown-toggle" id="text"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+            &nbsp; &nbsp; Create
+          </a>
+
+
+          <div id="menu" class="dropdown-menu" aria-labelledby="dropdownMenu" style="background-color:wheat; border-color: red; width: 200px;">
+
+
+              <a [routerLink]="['/books/create']" class="nav-link"  id="text" > Create book</a>
+
+
+
+              <a [routerLink]="['/genres/create']" class="nav-link"  id="text" href="#"> Create genre</a>
+
+
+<!--
+              <a routerLink="/categories/create" class="dropdown-item"  id="text" href="#"> Create publisher</a>
+
+
+              <a routerLink="/categories/create" class="dropdown-item"  id="text" href="#"> Create Author</a>
+
+
+              <a routerLink="/categories/create" class="dropdown-item"  id="text" href="#"> Create language</a>
+
+
+
+              <a routerLink="/categories/create" class="dropdown-item"  id="text" href="#"> Create year</a> -->
+
+
+          </div>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+
+
+
+        <li *ngIf="isAuthenticated" class="nav-item">
+          <a routerLink="/wishlist" class="nav-link" href="#">
+            <img src="../../../assets/BootstrapIcons/suit-heart-fill.svg" alt="heart" class="icon" width="32" height="32">
+          </a>
+        </li>
+
+        <li *ngIf="isAuthenticated" class="nav-item">
+          <a routerLink="/basket" class="nav-link" href="#">
+            <img src="../../../assets/BootstrapIcons/basket.svg" alt="basket" class="icon" width="32" height="32">
+          </a>
+        </li>
+
+        <li *ngIf="!isAuthenticated" class="nav-item">
+          <a routerLink="/books" class="nav-link" href="#"  id="text">Login</a>
+        </li>
+
+        <li routerLink="/auth" *ngIf="isAuthenticated" class="nav-item">
+          <a (click)="OnLogOut()" class="nav-link" href="#"  id="text">Logout</a>
+        </li>
+
+      </ul>
+
+
+
+
+    </div>
+  </div>
+</nav>

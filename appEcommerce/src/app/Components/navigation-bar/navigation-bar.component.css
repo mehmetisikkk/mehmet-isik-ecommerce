@@ -1,0 +1,19 @@
+.icon {
+  filter: invert(90%) sepia(2%) saturate(13%) hue-rotate(342deg) brightness(83%) contrast(83%);
+}
+
+.icon:hover {
+  filter: invert(36%) sepia(93%) saturate(7436%) hue-rotate(346deg) brightness(90%) contrast(101%);
+}
+
+#text{
+  color: gray;
+  font-size:15pt;
+  text-decoration: none;
+}
+
+#text:hover{
+  color: red;
+  font-size:15pt;
+  text-decoration: none;
+}

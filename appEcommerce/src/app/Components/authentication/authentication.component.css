@@ -1,0 +1,28 @@
+.form-control.ng-untouched{
+  border-top: 5px solid orange;
+}
+
+.form-control.ng-touched.ng-invalid{
+  border-top:0;
+  border-left: 5px solid red;
+}
+
+.form-control.ng-dirty.ng-valid{
+  border-top:0;
+  border-left: 5px solid darkgreen;
+}
+
+.form-select.ng-untouched{
+  border-top: 5px solid orange;
+}
+
+
+.form-select.ng-touched.ng-invalid{
+  border-top:0;
+  border-left: 5px solid red;
+}
+
+.form-select.ng-dirty.ng-valid{
+  border-top:0;
+  border-left: 5px solid darkgreen;
+}

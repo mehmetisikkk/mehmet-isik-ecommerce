@@ -1,0 +1,14 @@
+.listcolor{
+  background-color: wheat;
+  color: gray;
+}
+
+.listcolor:hover{
+  background-color: red;
+  color: white;
+}
+
+.listcolor.active{
+  background-color: gray;
+  color: wheat;
+}

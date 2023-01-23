@@ -1,0 +1,7 @@
+<div class="list-group">
+
+  <a  [routerLink]="['/books']" routerLinkActive="router-link-active" href="#" class="list-group-item list-group-item-action listcolor"  [class.active]="displayAll" (click)="select()">All Genres</a>
+
+  <a [routerLink]="['/books/genre',item.id]"  class="list-group-item list-group-item-action listcolor" [class.active]="!displayAll && selected.id==item.id" *ngFor="let item of genres" (click)="select(item)"> {{item.genrename}} </a>
+
+</div>
